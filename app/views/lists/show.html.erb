@@ -1,7 +1,9 @@
 <h1>List</h1>
 <div id="lists">
   <h2><%= @list.name %></h2>
-
+  <% if @list.photo.attached? %>
+    <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <p><strong>Movies</strong></p>
     <ul class="list-group">
       <% @list.bookmarks.each do |bookmark| %>
